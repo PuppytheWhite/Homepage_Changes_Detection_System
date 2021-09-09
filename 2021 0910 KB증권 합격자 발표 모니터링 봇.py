@@ -3,19 +3,19 @@ from bs4 import BeautifulSoup
 import time
 from datetime import datetime
 
-token = "xoxb-2465671549126-2496058717824-6Lrli9Pb0PNCOIks6u6COJMz"
+token = "xoxb-토큰값"
 channel = "#project-message"
 #text = "{0}\n합격자 발표 페이지 변동 발생!!!".format(str(datetime.today())[:19])
-url = "https://kbsec.incruit.com/success/index.asp?projectid=102"
+url = "채용 홈페이지 주소"
 
 while True:
     now_time = str(datetime.today())[:19]
     if now_time >= "2021-09-10 08:00:00":
         print(str(datetime.today())[:19])
-        print("*****  KB증권 채용홈페이지 변동사항 추적을 시작합니다  *****")
+        print("*****  채용홈페이지 변동사항 추적을 시작합니다  *****")
         requests.post("https://slack.com/api/chat.postMessage", headers={"Authorization": "Bearer " + token},
                       data={"channel": channel,
-                            "text": "{0}\nKB증권 채용홈페이지 변동사항 추적을 시작합니다".format(str(datetime.today())[:19])})
+                            "text": "{0}\n채용홈페이지 변동사항 추적을 시작합니다".format(str(datetime.today())[:19])})
         while True:
             req = requests.get(url)
             html = req.text
